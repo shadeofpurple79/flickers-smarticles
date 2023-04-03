@@ -10,3 +10,5 @@ data = json.loads(response.text)
 
 # create variable to store quiz questions
 questions = data["results"]
+
+print(data)
