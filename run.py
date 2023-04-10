@@ -1,6 +1,6 @@
 import colorama
 from colorama import Fore, Back, Style
-colorama.init(autoreset=True)
+colorama.init(autoreset=True) #return to default colour after each time
 
 import json
 import requests #Make a request to a web page, and print the response text
@@ -17,11 +17,11 @@ questions = data["results"]
 
 # print(data)
 
-correct_answers = 0 #score is zero at the start
+correct_answers = 0 #score is zero at the start, score equals number of correct answers
 
 # function to ask question 
 for question in questions: #for each question in the random 20 questions in the api
-    print(Style.BRIGHT + Back.MAGENTA + question["question"]) #print a random question to the player
+    print(Style.BRIGHT + Back.MAGENTA + question["question"].replace("&quot;", "'").replace("&#039;", "'")) #print a random question to the player
     print("Select your answer from the following 4 options:") #print the answers for the question to the player
     for i in range(len(question["incorrect_answers"])): #len() function returns the number of items in an object, 20 questions, 
         print(f"{i+1}. {question['incorrect_answers'][i]}")
