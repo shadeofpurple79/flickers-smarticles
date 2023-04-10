@@ -3,7 +3,7 @@ from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
 
 import json
-import requests
+import requests #Make a request to a web page, and print the response text
 
 # from opentdb api, category: entertainment - film, 20 questions, multiple choice
 API_URL = "https://opentdb.com/api.php?amount=20&category=11&type=multiple"
