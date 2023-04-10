@@ -24,28 +24,32 @@ for question in questions: #for each question in the random 20 questions in the 
     for i in range(len(question["incorrect_answers"])): #len() function returns the number of items in an object, 20 questions, 
         print(f"{i+1}. {question['incorrect_answers'][i]}")
     print(f"{len(question['incorrect_answers'])+1}. {question['correct_answer']}")
+    # user_answer = ""
     user_answer = int(input("What\'s your answer? Select 1,2,3 or 4: ")) #player selects an answer: 1,2,3, or 4 for each question
+    # while not (user_answer == 1 or user_answer == 2 or user_answer == 3 or user_answer == 4):
+        # user_answer = int(input("You can only enter 1, 2, 3 or 4. Try again: "))
     if user_answer == len(question["incorrect_answers"]) + 1:
         print(Fore.GREEN + "Correct, well done!\n\n")
         correct_answers += 1 #increase score by 1 for each correct answer
     else:
         print(Fore.RED + "Sorry, incorrect.\n\n")
-    #user_answer = int(input("You can only enter 1, 2, 3 or 4. Try again: "))
 print(Back.MAGENTA + "GAME OVER!")
 print(f"You got {correct_answers} out of {len(questions)} questions correct.")
 
     #EXCEPTION 1 TO HANDLE: player enters numbers outside of 1234
-    #EXCEPTION 2 TO HANDLE: player enters nn-integer
+    #EXCEPTION 2 TO HANDLE: player enters non-integer
 
-    # try:
-    #     user_answer = int(input("What\'s your answer? Select 1,2,3 or 4: ")) #player selects an answer: 1,2,3, or 4 for each question
-    #     if user_answer == len(question["incorrect_answers"]) + 1:
-    #         print(Fore.GREEN + "Correct, well done!\n\n")
-    #         correct_answers += 1 #increase score by 1 for each correct answer
-    #     else:
-    #         print(Fore.RED + "Sorry, incorrect.\n\n")
-    # except ValueError: 
-    #     user_answer = int(input("You can only enter 1, 2, 3 or 4. Try again: "))
+    # while True: 
+    #     user_answer = ""
+    #     try:
+    #         user_answer = int(input("What\'s your answer? Select 1,2,3 or 4: ")) #player selects an answer: 1,2,3, or 4 for each question
+    #         if user_answer == len(question["incorrect_answers"]) + 1:
+    #             print(Fore.GREEN + "Correct, well done!\n\n")
+    #             correct_answers += 1 #increase score by 1 for each correct answer
+    #         else:
+    #             print(Fore.RED + "Sorry, incorrect.\n\n")
+    #     except ValueError: 
+    #         user_answer = int(input("You can only enter 1, 2, 3 or 4. Try again: "))
 
 
 
