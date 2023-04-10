@@ -18,10 +18,8 @@ questions = data["results"]
 # print(data)
 
 correct_answers = 0 #score is zero at the start, score equals number of correct answers
-
-# function to ask question 
 for question in questions: #for each question in the random 20 questions in the api
-    print(Style.BRIGHT + Back.MAGENTA + question["question"].replace("&quot;", "'").replace("&#039;", "'")) #print a random question to the player
+    print(Style.BRIGHT + Back.MAGENTA + question["question"].replace("&quot;", "'").replace("&#039;", "'")) #print a random question to the player, remove ugly text that comes in from the api for apostrophes
     print("Select your answer from the following 4 options:") #print the answers for the question to the player
     for i in range(len(question["incorrect_answers"])): #len() function returns the number of items in an object, 20 questions, 
         print(f"{i+1}. {question['incorrect_answers'][i]}")
@@ -32,8 +30,26 @@ for question in questions: #for each question in the random 20 questions in the 
         correct_answers += 1 #increase score by 1 for each correct answer
     else:
         print(Fore.RED + "Sorry, incorrect.\n\n")
-
+    #user_answer = int(input("You can only enter 1, 2, 3 or 4. Try again: "))
+print(Back.MAGENTA + "GAME OVER!")
 print(f"You got {correct_answers} out of {len(questions)} questions correct.")
+
+    #EXCEPTION 1 TO HANDLE: player enters numbers outside of 1234
+    #EXCEPTION 2 TO HANDLE: player enters nn-integer
+
+    # try:
+    #     user_answer = int(input("What\'s your answer? Select 1,2,3 or 4: ")) #player selects an answer: 1,2,3, or 4 for each question
+    #     if user_answer == len(question["incorrect_answers"]) + 1:
+    #         print(Fore.GREEN + "Correct, well done!\n\n")
+    #         correct_answers += 1 #increase score by 1 for each correct answer
+    #     else:
+    #         print(Fore.RED + "Sorry, incorrect.\n\n")
+    # except ValueError: 
+    #     user_answer = int(input("You can only enter 1, 2, 3 or 4. Try again: "))
+
+
+
+
 
 # show game intro at the start
 
