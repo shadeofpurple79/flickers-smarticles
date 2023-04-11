@@ -43,7 +43,9 @@ print(f"You got {correct_answers} out of {len(questions)} questions correct.")
     #     user_answer = ""
     #     try:
     #         user_answer = int(input("What\'s your answer? Select 1,2,3 or 4: ")) #player selects an answer: 1,2,3, or 4 for each question
-    #         if user_answer == len(question["incorrect_answers"]) + 1:
+    #         choices = 
+                # if user error not in choices 
+    #           if user_answer == len(question["incorrect_answers"]) + 1:
     #             print(Fore.GREEN + "Correct, well done!\n\n")
     #             correct_answers += 1 #increase score by 1 for each correct answer
     #         else:
