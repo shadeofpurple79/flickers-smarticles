@@ -17,14 +17,35 @@ questions = data["results"]
 
 # print(data)
 
-correct_answers = 0 #score is zero at the start, score equals number of correct answers
+clear()
+correct_answers = 0 #score is zero at the start, score equals number of correct answers 
+choices = ["1", "2", "3", "4"]
+
+
+
+
+
+# function to validae user answer
+def validate_choice(user_answer, choices):
+    try:
+        if user_input not in choices:
+            raise ValueError
+    except ValueError:
+        clear()
+        print(red(LINE))
+        print(red(CENT(f'Error: "{user_answer}" is not valid! Enter 1 or 2 or 3 or 4')))
+        return False
+    return True
+
+
+
+
 for question in questions: #for each question in the random 20 questions in the api
-    print(Style.BRIGHT + Back.MAGENTA + question["question"].replace("&quot;", "'").replace("&#039;", "'")) #print a random question to the player, remove ugly text that comes in from the api for apostrophes
+    print(Style.BRIGHT + Back.MAGENTA + question["question"].replace("&quot;", "'").replace("&#039;", "'").replace("&ldquo;", "'")) #print a random question to the player, remove ugly text that comes in from the api for apostrophes
     print("Select your answer from the following 4 options:") #print the answers for the question to the player
     for i in range(len(question["incorrect_answers"])): #len() function returns the number of items in an object, 20 questions, 
         print(f"{i+1}. {question['incorrect_answers'][i]}")
     print(f"{len(question['incorrect_answers'])+1}. {question['correct_answer']}")
-    # user_answer = ""
     user_answer = int(input("What\'s your answer? Select 1,2,3 or 4: ")) #player selects an answer: 1,2,3, or 4 for each question
     # while not (user_answer == 1 or user_answer == 2 or user_answer == 3 or user_answer == 4):
         # user_answer = int(input("You can only enter 1, 2, 3 or 4. Try again: "))
@@ -38,6 +59,7 @@ print(f"You got {correct_answers} out of {len(questions)} questions correct.")
 
     #EXCEPTION 1 TO HANDLE: player enters numbers outside of 1234
     #EXCEPTION 2 TO HANDLE: player enters non-integer
+    # bug remove unwanted code from all answer choices and replace with apostrophe
 
     # while True: 
     #     user_answer = ""
