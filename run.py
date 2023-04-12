@@ -51,6 +51,15 @@ def start_game():
             print()  # Add a blank line between questions
     print(Back.MAGENTA + "GAME OVER!")
     print(f"You got {correct_answers} out of {len(questions)} questions correct.")
+    again = input("Play again? Y / N")
+        if again = "y":
+            start_game()
+        elif again = "n":
+            print(Back.MAGENTA + "Goodbye")
+            break 
+        else:
+            input("Not a valid answer. Play again? Y/N")
+            
 
 start_game()
 
