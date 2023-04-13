@@ -98,8 +98,9 @@ start_game()
 #EXCEPTION 1 TO HANDLE: player enters numbers outside of 1234
 #EXCEPTION 2 TO HANDLE: player enters non-integer
 # bug remove unwanted code from all answer choices and replace with apostrophe
-# bug validation not working, not throwing an error when answer is other than 1234
+# bug - validation not working, not throwing an error when answer is other than 1234
 # bug - correct answer is always the same number 4
+# user answer must be an int, otherwise it shows as incorrect answer - FIXED
 
 		
 # # BINNED CODE
