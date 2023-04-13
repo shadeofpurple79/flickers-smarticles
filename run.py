@@ -63,6 +63,60 @@ def start_game():
 
 start_game()
 
+# CODING CHECKLIST
+
+# RUN PROGRAM BUTTON
+
+# function start_game
+# 	pull new 20 questions and answer choices from the API link
+# 	reset the score = 0
+# 	question_number = 0
+# 	choices = [1-2-3-4]
+# 	clear the screen
+
+# 	for question i to 20
+
+# 		show_question [i]
+# 		question_number + 1
+# 		i + 1
+# 		show 3 incorrect answers
+# 		show 1 correct answer
+# 		show 1-2-3-4 next to each answer option
+
+# 		input answer
+# 		while input answer is not included in choices 
+# 			print error message, input only 1-2-3-4
+# 		otherwise check if input answer is correct or wrong
+# 			if it's correct
+# 				print correct
+# 				score + 1
+# 			if it's wrong
+# 				print incorrect
+# 		back to show_question
+
+# 	when i = 20 end quiz 
+
+# print score + message
+# input question play again? y/n
+# 	if y
+# 		function start_game
+# 	if n
+# 		print goodbye + end game
+# 	if other
+# 		input question play again? y/n
+	
+		
+# # 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+
 
 # function to validate user answer
 # def validate_choice(user_answer, choices):
