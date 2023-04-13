@@ -19,9 +19,9 @@ def start_game():
     # print(data) 
     
     # score is zero at the start, score equals number of correct answers
-    correct_answers = 0  
+    correct_answer = 0  
     # player should only enter answer options 1-2-3-4
-    answer_choices = ["1", "2", "3", "4"]
+    answer_choices = [1, 2, 3, 4]
 
     # for each question in the random 20 questions in the api, show the question, 
     # show 3 incorrect answers and 1 correct answer, 
@@ -36,17 +36,25 @@ def start_game():
             print(f"{i+1}. {question['incorrect_answers'][i]}")
         print(f"{len(question['incorrect_answers'])+1}. {question['correct_answer']}")
         # player selects an answer: 1,2,3,4 
-        user_answer = int(input("What\'s your answer? Select 1,2,3 or 4: ")) 
+        user_answer = int(input("What\'s your answer? Select 1,2,3 or 4: "))
+        while user_answer not in answer_choices:
+            user_answer = int()(input("You can only enter 1, 2, 3 or 4. Try again: "))
         if user_answer == len(question["incorrect_answers"]) + 1:
             print(Fore.GREEN + "Correct, well done!\n\n")
             print()  # Add a blank line between questions
-            correct_answers += 1 #increase score by 1 for each correct answer
+            correct_answer += 1 #increase score by 1 for each correct answer
         else:
             print(Fore.RED + "Sorry, incorrect.\n\n")
             print()  # Add a blank line between questions
     print(Back.MAGENTA + "GAME OVER!")
-    print(f"You got {correct_answers} out of {len(questions)} questions correct.")
-
+    print(f"You got {correct_answer} out of {len(questions)} questions correct.")
+    again = input("Play again? Y / N: ")
+    if again == "y":
+        start_game()
+    elif again == "n":
+        print(Back.MAGENTA + "Goodbye") 
+    else:
+        input("Not a valid answer. Play again? Y/N")
 start_game()
 
 
@@ -54,6 +62,8 @@ start_game()
 # CODING CHECKLIST
 
 # RUN PROGRAM BUTTON
+
+# show game intro at the start
 
 # function start_game - DONE start_game
 # 	pull new 20 questions and answer choices from the API link - DONE
@@ -67,12 +77,12 @@ start_game()
 # 		show_question [i] - DONE 
 # 		question_number + 1 - DONE
 # 		i + 1 - DONE
-#       shuffle the order of incorrect answers and correct answer
+#       shuffle the order of incorrect answers and correct answer !!!
 # 		show 3 incorrect answers - DONE
 # 		show 1 correct answer - DONE
 # 		show 1-2-3-4 next to each answer option - DONE
 
-# 		input answer
+# 		input answer - DONE
 # 		while input answer is not included in choices 
 # 			print error message, input only 1-2-3-4
 # 		otherwise check if input answer is correct or wrong
@@ -101,6 +111,9 @@ start_game()
 # bug - validation not working, not throwing an error when answer is other than 1234
 # bug - correct answer is always the same number 4
 # user answer must be an int, otherwise it shows as incorrect answer - FIXED
+# if any other number is entered, it gives an error, but doesn't accept any further answers
+# if any character other than a number is entered, it breaks and ends the game
+#  play again y/n. if answer is invalid, program ends, it doesn't accept any new answers
 
 		
 # # BINNED CODE
@@ -160,4 +173,3 @@ start_game()
     #         user_answer = int(input("You can only enter 1, 2, 3 or 4. Try again: "))
 
 
-# show game intro at the start
