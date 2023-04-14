@@ -40,7 +40,7 @@ def start_game():
         random.shuffle(all_answers)
 
         for i, answer in enumerate(all_answers):
-            print(f"{i + 1}. {answer}")
+            print(f"{i + 1}. {answer}".replace("&quot;", "'").replace("&#039;", "'").replace("&ldquo;", "'").replace(",&rdquo;", "'").replace("&amp;", "'"))
 
         # player selects an answer: 1,2,3,4 
         user_answer = (input("What\'s your answer? Select 1,2,3 or 4: "))
