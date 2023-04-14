@@ -32,17 +32,18 @@ def start_game():
         # remove ugly text that comes in from the api for apostrophes 
         print(Style.BRIGHT + Back.MAGENTA + question["question"].replace("&quot;", "'").replace("&#039;", "'").replace("&ldquo;", "'").replace(",&rdquo;", "'").replace("&amp;", "'")) 
         print("Select your answer from the following 4 options:") 
-        
-        # len() function returns the number of items in an object, 20 questions
-        # print all 3 incorrect answers and 1 correct answer
-        for i in range(len(question["incorrect_answers"])):  
-            random.shuffle(question['incorrect_answers'])
-            print(f"{i+1}. {(question['incorrect_answers'][i])}")
-        print(f"{len(question['incorrect_answers'])+1}. {question['correct_answer']}")
-        
+
+        # assign 3 incorrect answers and 1 correct answer into a variable and shuffle them so that the answer is not always the same option
+        all_answers = question["incorrect_answers"]
+        all_answers.append(question["correct_answer"])
+        random.shuffle(all_answers)
+
+        for i, answer in enumerate(all_answers):
+            print(f"{i + 1}. {answer}")
+
         # player selects an answer: 1,2,3,4 
         user_answer = int(input("What\'s your answer? Select 1,2,3 or 4: "))
-        
+
         answer_count = 0
         answer_limit = 3 # can only enter 3 times for one question
         out_of_try = False
@@ -57,14 +58,13 @@ def start_game():
         if out_of_try:
             print("Sorry, too many invalid answers. ")
         else: 
-            if user_answer == len(question["incorrect_answers"]) + 1:
+            if all_answers[user_answer - 1] == question["correct_answer"]:
                 print(Fore.GREEN + "Correct, well done!\n\n")
-                print()  # Add a blank line between questions
-                correct_answer += 1 #increase score by 1 for each correct answer
+                correct_answer += 1
             else:
                 print(Fore.RED + "Sorry, incorrect.\n\n")
                 print()  # Add a blank line between questions
-    
+
     print(Back.MAGENTA + "GAME OVER!")
     print(f"You got {correct_answer} out of {len(questions)} questions correct.")
     
@@ -98,7 +98,7 @@ start_game()
 # 		show_question [i] - DONE 
 # 		question_number + 1 - DONE
 # 		i + 1 - DONE
-#       shuffle the order of incorrect answers and correct answer !!!
+#       shuffle the order of incorrect answers and correct answer - DONE
 # 		show 3 incorrect answers - DONE
 # 		show 1 correct answer - DONE
 # 		show 1-2-3-4 next to each answer option - DONE
@@ -130,14 +130,39 @@ start_game()
 #EXCEPTION 2 TO HANDLE: player enters non-integer
 # bug remove unwanted code from all answer choices and replace with apostrophe
 # bug - validation not working, not throwing an error when answer is other than 1234
-# bug - correct answer is always the same number 4
-# user answer must be an int, otherwise it shows as incorrect answer - FIXED
 # if any other number is entered, it gives an error, but doesn't accept any further answers
 # if any character other than a number is entered, it breaks and ends the game
 #  play again y/n. if answer is invalid, program ends, it doesn't accept any new answers
 
-		
+
+# FIXED BUGS
+# bug - correct answer is always the same number 4 - fixed by assigning all incorrect plus 1 correct answer into a variable and shuffling all of them
+# user answer must be an int, otherwise it shows as incorrect answer - FIXED
+
+
+
+
 # # BINNED CODE
+
+############### fix 1
+ # len() function returns the number of items in an object, 20 questions
+        # print all 3 incorrect answers and 1 correct answer
+        # for i in range(len(question["incorrect_answers"])):  
+        #     random.shuffle(question['incorrect_answers'])
+        #     print(f"{i+1}. {(question['incorrect_answers'][i])}")
+        # print(f"{len(question['incorrect_answers'])+1}. {question['correct_answer']}")
+############### end of fix 1
+
+
+############### fix 2
+        # if user_answer == len(question["incorrect_answers"]) + 1:
+        #     print(Fore.GREEN + "Correct, well done!\n\n")
+        #     print()  # Add a blank line between questions
+        #     correct_answer += 1 #increase score by 1 for each correct answer
+        # else:
+        #     print(Fore.RED + "Sorry, incorrect.\n\n")
+############### END OF fix 2
+
 
 # def validate_choice(user_answer, answer_choices):
         #     try:
