@@ -2,14 +2,14 @@ import random
 
 import colorama
 from colorama import Fore, Back, Style
-colorama.init(autoreset=True)  #return to default colour after each time
+colorama.init(autoreset=True)  # return to default colour after each time
 
 import json
-import requests # Make a request to a web page, and print the response text
+import requests  # Make a request to a web page, and print the response text
 
 
 def start_game():
-    # from opentdb api, category: entertainment 
+    # from opentdb api, category: entertainment
     # - film, 20 questions, multiple choice
     API_URL = "https://opentdb.com/api.php?amount=20&category=11&type=multiple"
 
@@ -19,20 +19,20 @@ def start_game():
 
     # create variable to store quiz questions
     questions = data["results"]
-    # print(data) - testing to show that the questions and answers are coming through the api
-    
+
     # score is zero at the start, score equals number of correct answers
-    correct_answer = 0  
+    correct_answer = 0
 
     # for each question in the random 20 questions in the api, show question
     # show 3 incorrect answers and 1 correct answer
     # ask player to enter their choice
-    for question in questions: 
-        # remove ugly text that comes in from the api for apostrophes 
-        print(Style.BRIGHT + Back.MAGENTA + question["question"].replace("&quot;", "'").replace("&#039;", "'").replace("&ldquo;", "'").replace(",&rdquo;", "'").replace("&amp;", "'")) 
-        print("Select your answer from the following 4 options:") 
+    for question in questions:
+        # remove ugly text that comes in from the api for apostrophes
+        print(Style.BRIGHT + Back.MAGENTA + question["question"].replace("&quot;", "'").replace("&#039;", "'").replace("&ldquo;", "'").replace(",&rdquo;", "'").replace("&amp;", "'"))
+        print("Select your answer from the following 4 options:")
 
-        # assign 3 incorrect answers and 1 correct answer into a variable and shuffle them so that the answer is not always the same option
+        # assign 3 incorrect answers and 1 correct answer into a variable and
+        # shuffle them so that the answer is not always the same option
         all_answers = question["incorrect_answers"]
         all_answers.append(question["correct_answer"])
         random.shuffle(all_answers)
@@ -41,16 +41,16 @@ def start_game():
             # remove ugly text that comes in from the api for apostrophes
             print(f"{i + 1}. {answer}".replace("&quot;", "'").replace("&#039;", "'").replace("&ldquo;", "'").replace(",&rdquo;", "'").replace("&amp;", "'").replace("&egrave;", "e").replace("&hellip;", "."))
 
-        # player selects an answer: 1,2,3,4 
+        # player selects an answer: 1,2,3,4
         user_answer = (input("What\'s your answer? Select 1,2,3 or 4: "))
-        
-        while True: 
+
+        while True:
             if user_answer not in ['1', '2', '3', '4']:
                 user_answer = (input("You can only enter 1, 2, 3 or 4. Try again: "))
                 continue
             else:
                 break
-        
+
         user_input = int(user_answer)
         if all_answers[user_input - 1] == question["correct_answer"]:
             print(Fore.GREEN + "Correct, well done!\n\n")
@@ -62,8 +62,8 @@ def start_game():
     print(f"You got {correct_answer} out of {len(questions)} questions correct.")
     print()
     play_again = input("Play again? Y / N: ").lower()
-    
-    while True: 
+
+    while True:
         if play_again not in ["y", "n"]:
             play_again = input("Not a valid answer. Play again? Y / N: ").lower()
             continue
@@ -75,8 +75,10 @@ def start_game():
                 print()
                 print()
             break
-        
+
+
 start_game()
+
 
 
 
