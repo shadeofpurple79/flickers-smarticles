@@ -23,11 +23,9 @@ def start_game():
     
     # score is zero at the start, score equals number of correct answers
     correct_answer = 0  
-    # player should only enter answer options 1-2-3-4
-    # answer_choices = [1, 2, 3, 4]
 
-    # for each question in the random 20 questions in the api, show the question, 
-    # show 3 incorrect answers and 1 correct answer, 
+    # for each question in the random 20 questions in the api, show question
+    # show 3 incorrect answers and 1 correct answer
     # ask player to enter their choice
     for question in questions: 
         # remove ugly text that comes in from the api for apostrophes 
@@ -40,39 +38,29 @@ def start_game():
         random.shuffle(all_answers)
 
         for i, answer in enumerate(all_answers):
-            print(f"{i + 1}. {answer}".replace("&quot;", "'").replace("&#039;", "'").replace("&ldquo;", "'").replace(",&rdquo;", "'").replace("&amp;", "'"))
+            # remove ugly text that comes in from the api for apostrophes
+            print(f"{i + 1}. {answer}".replace("&quot;", "'").replace("&#039;", "'").replace("&ldquo;", "'").replace(",&rdquo;", "'").replace("&amp;", "'").replace("&egrave;", "e").replace("&hellip;", "."))
 
         # player selects an answer: 1,2,3,4 
         user_answer = (input("What\'s your answer? Select 1,2,3 or 4: "))
-
-        # answer_count = 0
-        # answer_limit = 3 # can only enter 3 times for one question
-        # out_of_try = False
         
         while True: 
             if user_answer not in ['1', '2', '3', '4']:
-            # answer_count < answer_limit:
                 user_answer = (input("You can only enter 1, 2, 3 or 4. Try again: "))
-                # answer_count += 1
                 continue
             else:
-                # out_of_try = True
                 break
         
-        # if out_of_try:
-        #     print("Sorry, too many invalid answers. ")
-        # else: 
         user_input = int(user_answer)
         if all_answers[user_input - 1] == question["correct_answer"]:
             print(Fore.GREEN + "Correct, well done!\n\n")
             correct_answer += 1
         else:
             print(Fore.RED + "Sorry, incorrect.\n\n")
-            print()  # Add a blank line between questions
 
     print(Back.MAGENTA + "GAME OVER!")
     print(f"You got {correct_answer} out of {len(questions)} questions correct.")
-    
+    print()
     play_again = input("Play again? Y / N: ").lower()
     
     while True: 
@@ -84,14 +72,9 @@ def start_game():
                 start_game()
             else:
                 print(Back.MAGENTA + "Goodbye")
+                print()
+                print()
             break
-
-    # if play_again == "y":
-    #     start_game()
-    # else play_again == "n":
-    #     print(Back.MAGENTA + "Goodbye") 
-    #     print()
-    #     print()
         
 start_game()
 
@@ -143,8 +126,13 @@ start_game()
 # 		input question play again? y/n - DONE
 	
 
+ # if play_again == "y":
+    #     start_game()
+    # else play_again == "n":
+    #     print(Back.MAGENTA + "Goodbye") 
+    #     print()
+    #     print()
 
-# bug remove unwanted code from all answer choices and replace with apostrophe
 
 
 # FIXED BUGS
@@ -153,12 +141,24 @@ start_game()
 # bug - validation not working, not throwing an error when answer is other than 1234. Fixed by using a while loop with continue and break commands
 # if any other number is entered, it gives an error, but doesn't accept any further answers. Fixed by adding continue and break to while loop.
 # if any character other than a number is entered, it breaks and ends the game. Fixed by removing integer from input, and assigning the answer into a new variable that converts the answer into an integer. 
-#  play again y/n. if answer is invalid, program ends, it doesn't accept any new answers. Fixed by replacing if loop with a while continue break loop. 
-
+# play again y/n. if answer is invalid, program ends, it doesn't accept any new answers. Fixed by replacing if loop with a while continue break loop and adding a nested if loop within.  
+# bug remove unwanted code from all answer choices and replace with apostrophe
 
 
 
 # # BINNED CODE
+
+        # answer_count = 0
+        # answer_limit = 3 # can only enter 3 times for one question
+        # out_of_try = False
+        # answer_count < answer_limit:
+        # answer_count += 1
+        # out_of_try = True
+        # if out_of_try:
+        #     print("Sorry, too many invalid answers. ")
+        # else: 
+
+
 
 ############### fix 1
  # len() function returns the number of items in an object, 20 questions
