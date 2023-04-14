@@ -2,14 +2,15 @@ import random
 
 import colorama
 from colorama import Fore, Back, Style
-colorama.init(autoreset=True) #return to default colour after each time
+colorama.init(autoreset=True)  #return to default colour after each time
 
 import json
-import requests #Make a request to a web page, and print the response text
+import requests # Make a request to a web page, and print the response text
 
 
 def start_game():
-    # from opentdb api, category: entertainment - film, 20 questions, multiple choice
+    # from opentdb api, category: entertainment 
+    # - film, 20 questions, multiple choice
     API_URL = "https://opentdb.com/api.php?amount=20&category=11&type=multiple"
 
     # get data from the API
@@ -50,7 +51,7 @@ def start_game():
         
         while user_answer not in answer_choices and not(out_of_try):
             if answer_count < answer_limit:
-                user_answer = int()(input("You can only enter 1, 2, 3 or 4. Try again: "))
+                user_answer = int(input("You can only enter 1, 2, 3 or 4. Try again: "))
                 answer_count += 1
             else:
                 out_of_try = True
