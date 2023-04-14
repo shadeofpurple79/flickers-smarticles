@@ -43,28 +43,32 @@ def start_game():
             print(f"{i + 1}. {answer}")
 
         # player selects an answer: 1,2,3,4 
-        user_answer = int(input("What\'s your answer? Select 1,2,3 or 4: "))
+        user_answer = (input("What\'s your answer? Select 1,2,3 or 4: "))
 
-        answer_count = 0
-        answer_limit = 3 # can only enter 3 times for one question
-        out_of_try = False
+        # answer_count = 0
+        # answer_limit = 3 # can only enter 3 times for one question
+        # out_of_try = False
         
-        while user_answer not in answer_choices and not(out_of_try):
-            if answer_count < answer_limit:
-                user_answer = int(input("You can only enter 1, 2, 3 or 4. Try again: "))
-                answer_count += 1
+        while True: 
+            if user_answer not in ['1', '2', '3', '4']:
+            # answer_count < answer_limit:
+                user_answer = (input("You can only enter 1, 2, 3 or 4. Try again: "))
+                # answer_count += 1
+                continue
             else:
-                out_of_try = True
+                # out_of_try = True
+                break
         
-        if out_of_try:
-            print("Sorry, too many invalid answers. ")
-        else: 
-            if all_answers[user_answer - 1] == question["correct_answer"]:
-                print(Fore.GREEN + "Correct, well done!\n\n")
-                correct_answer += 1
-            else:
-                print(Fore.RED + "Sorry, incorrect.\n\n")
-                print()  # Add a blank line between questions
+        # if out_of_try:
+        #     print("Sorry, too many invalid answers. ")
+        # else: 
+        user_input = int(user_answer)
+        if all_answers[user_input - 1] == question["correct_answer"]:
+            print(Fore.GREEN + "Correct, well done!\n\n")
+            correct_answer += 1
+        else:
+            print(Fore.RED + "Sorry, incorrect.\n\n")
+            print()  # Add a blank line between questions
 
     print(Back.MAGENTA + "GAME OVER!")
     print(f"You got {correct_answer} out of {len(questions)} questions correct.")
