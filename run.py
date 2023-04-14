@@ -9,6 +9,13 @@ import requests  # Make a request to a web page, and print the response text
 
 
 def start_game():
+    print("===============================================")
+    print("|             Flickers Smarticles             |")
+    print("|              Movie Trivia Game              |")
+    print("| Do you know your Tom Cruise from Brad Pitt? |")
+    print("===============================================")
+    print()
+    print()
     # from opentdb api, category: entertainment
     # - film, 20 questions, multiple choice
     API_URL = "https://opentdb.com/api.php?amount=20&category=11&type=multiple"
