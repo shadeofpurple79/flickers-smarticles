@@ -80,6 +80,10 @@ def start_game():
             play_again = input("Not a valid answer. Play again? Y / N: ").lower()
             continue
         else:
+            if play_again == "y":
+                start_game()
+            else:
+                print(Back.MAGENTA + "Goodbye")
             break
 
     # if play_again == "y":
