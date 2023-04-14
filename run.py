@@ -32,23 +32,28 @@ def start_game():
         # remove ugly text that comes in from the api for apostrophes 
         print(Style.BRIGHT + Back.MAGENTA + question["question"].replace("&quot;", "'").replace("&#039;", "'").replace("&ldquo;", "'").replace(",&rdquo;", "'").replace("&amp;", "'")) 
         print("Select your answer from the following 4 options:") 
+        
         # len() function returns the number of items in an object, 20 questions
         # print all 3 incorrect answers and 1 correct answer
         for i in range(len(question["incorrect_answers"])):  
             random.shuffle(question['incorrect_answers'])
             print(f"{i+1}. {(question['incorrect_answers'][i])}")
         print(f"{len(question['incorrect_answers'])+1}. {question['correct_answer']}")
+        
         # player selects an answer: 1,2,3,4 
         user_answer = int(input("What\'s your answer? Select 1,2,3 or 4: "))
+        
         answer_count = 0
         answer_limit = 3 # can only enter 3 times for one question
         out_of_try = False
+        
         while user_answer not in answer_choices and not(out_of_try):
             if answer_count < answer_limit:
                 user_answer = int()(input("You can only enter 1, 2, 3 or 4. Try again: "))
                 answer_count += 1
             else:
                 out_of_try = True
+        
         if out_of_try:
             print("Sorry, too many invalid answers. ")
         else: 
@@ -59,15 +64,18 @@ def start_game():
             else:
                 print(Fore.RED + "Sorry, incorrect.\n\n")
                 print()  # Add a blank line between questions
+    
     print(Back.MAGENTA + "GAME OVER!")
     print(f"You got {correct_answer} out of {len(questions)} questions correct.")
-    again = input("Play again? Y / N: ")
+    
+    again = input("Play again? Y / N: ").lower()
     if again == "y":
         start_game()
     elif again == "n":
         print(Back.MAGENTA + "Goodbye") 
     else:
         input("Not a valid answer. Play again? Y/N: ")
+
 start_game()
 
 
