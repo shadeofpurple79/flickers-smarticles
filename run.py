@@ -19,12 +19,12 @@ def start_game():
 
     # create variable to store quiz questions
     questions = data["results"]
-    # print(data) 
+    # print(data) - testing to show that the questions and answers are coming through the api
     
     # score is zero at the start, score equals number of correct answers
     correct_answer = 0  
     # player should only enter answer options 1-2-3-4
-    answer_choices = [1, 2, 3, 4]
+    # answer_choices = [1, 2, 3, 4]
 
     # for each question in the random 20 questions in the api, show the question, 
     # show 3 incorrect answers and 1 correct answer, 
@@ -109,40 +109,39 @@ start_game()
 # 		show 1-2-3-4 next to each answer option - DONE
 
 # 		input answer - DONE
-# 		while input answer is not included in choices 
-# 			print error message, input only 1-2-3-4
-# 		otherwise check if input answer is correct or wrong
-# 			if it's correct
-# 				print correct
-# 				score + 1
-# 			if it's wrong
-# 				print incorrect
-# 		back to show_question
+# 		while input answer is not included in choices - DONE
+# 			print error message, input only 1-2-3-4 - DONE
+# 		otherwise check if input answer is correct or wrong - DONE
+# 			if it's correct - DONE
+# 				print correct - DONE
+# 				score + 1 - DONE
+# 			if it's wrong - DONE
+# 				print incorrect - DONE
+# 		back to show_question - DONE
 
-# 	when i = 20 end quiz 
+# 	when i = 20 end quiz  - DONE
 
-# print score + message
-# input question play again? y/n
-# 	if y
-# 		function start_game
-# 	if n
-# 		print goodbye + end game
-# 	if other
-# 		input question play again? y/n
+# print score + message - DONE
+# input question play again? y/n - DONE
+# 	if y - DONE
+# 		function start_game - DONE
+# 	if n - DONE
+# 		print goodbye + end game - DONE
+# 	if other - DONE
+# 		input question play again? y/n - DONE
 	
 
-#EXCEPTION 1 TO HANDLE: player enters numbers outside of 1234
-#EXCEPTION 2 TO HANDLE: player enters non-integer
+
 # bug remove unwanted code from all answer choices and replace with apostrophe
-# bug - validation not working, not throwing an error when answer is other than 1234
-# if any other number is entered, it gives an error, but doesn't accept any further answers
-# if any character other than a number is entered, it breaks and ends the game
-#  play again y/n. if answer is invalid, program ends, it doesn't accept any new answers
 
 
 # FIXED BUGS
 # bug - correct answer is always the same number 4 - fixed by assigning all incorrect plus 1 correct answer into a variable and shuffling all of them
 # user answer must be an int, otherwise it shows as incorrect answer - FIXED
+# bug - validation not working, not throwing an error when answer is other than 1234. Fixed by using a while loop with continue and break commands
+# if any other number is entered, it gives an error, but doesn't accept any further answers. Fixed by adding continue and break to while loop.
+# if any character other than a number is entered, it breaks and ends the game. Fixed by removing integer from input, and assigning the answer into a new variable that converts the answer into an integer. 
+#  play again y/n. if answer is invalid, program ends, it doesn't accept any new answers. Fixed by correcting indentation errors. 
 
 
 
