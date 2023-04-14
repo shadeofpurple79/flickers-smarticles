@@ -73,14 +73,22 @@ def start_game():
     print(Back.MAGENTA + "GAME OVER!")
     print(f"You got {correct_answer} out of {len(questions)} questions correct.")
     
-    again = input("Play again? Y / N: ").lower()
-    if again == "y":
-        start_game()
-    elif again == "n":
-        print(Back.MAGENTA + "Goodbye") 
-    else:
-        input("Not a valid answer. Play again? Y/N: ")
+    play_again = input("Play again? Y / N: ").lower()
+    
+    while True: 
+        if play_again not in ["y", "n"]:
+            play_again = input("Not a valid answer. Play again? Y / N: ").lower()
+            continue
+        else:
+            break
 
+    # if play_again == "y":
+    #     start_game()
+    # else play_again == "n":
+    #     print(Back.MAGENTA + "Goodbye") 
+    #     print()
+    #     print()
+        
 start_game()
 
 
@@ -141,7 +149,7 @@ start_game()
 # bug - validation not working, not throwing an error when answer is other than 1234. Fixed by using a while loop with continue and break commands
 # if any other number is entered, it gives an error, but doesn't accept any further answers. Fixed by adding continue and break to while loop.
 # if any character other than a number is entered, it breaks and ends the game. Fixed by removing integer from input, and assigning the answer into a new variable that converts the answer into an integer. 
-#  play again y/n. if answer is invalid, program ends, it doesn't accept any new answers. Fixed by correcting indentation errors. 
+#  play again y/n. if answer is invalid, program ends, it doesn't accept any new answers. Fixed by replacing if loop with a while continue break loop. 
 
 
 
