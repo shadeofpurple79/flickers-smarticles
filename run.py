@@ -153,16 +153,6 @@ start_game()
 
 
 
-# FIXED BUGS
-# bug - correct answer is always the same number 4 - fixed by assigning all incorrect plus 1 correct answer into a variable and shuffling all of them
-# user answer must be an int, otherwise it shows as incorrect answer - FIXED
-# bug - validation not working, not throwing an error when answer is other than 1234. Fixed by using a while loop with continue and break commands
-# if any other number is entered, it gives an error, but doesn't accept any further answers. Fixed by adding continue and break to while loop.
-# if any character other than a number is entered, it breaks and ends the game. Fixed by removing integer from input, and assigning the answer into a new variable that converts the answer into an integer. 
-# play again y/n. if answer is invalid, program ends, it doesn't accept any new answers. Fixed by replacing if loop with a while continue break loop and adding a nested if loop within.  
-# bug remove unwanted code from all answer choices and replace with apostrophe
-
-
 
 # # BINNED CODE
 
