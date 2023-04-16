@@ -46,7 +46,7 @@ def start_game():
 
         for i, answer in enumerate(all_answers):
             # remove ugly text that comes in from the api for apostrophes
-            print(f"{i + 1}. {answer}".replace("&quot;", "'").replace("&#039;", "'").replace("&ldquo;", "'").replace(",&rdquo;", "'").replace("&amp;", "'").replace("&egrave;", "e").replace("&hellip;", "."))
+            print(f"{i + 1}. {answer}".replace("&quot;", "'").replace("&#039;", "'").replace("&ldquo;", "'").replace(",&rdquo;", "'").replace("&amp;", "'").replace("&egrave;", "e").replace("&hellip;", "..."))
 
         # player selects an answer: 1,2,3,4
         user_answer = (input("What\'s your answer? Select 1,2,3 or 4: "))
