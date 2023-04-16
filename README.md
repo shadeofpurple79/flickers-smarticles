@@ -114,27 +114,15 @@ class Person:
 
 The primary functions used on this application are:
 
-- `get_sales_data()`
-    - Get sales figures input from the user.
-- `validate_data()`
-    - Converts all string values into integers.
-- `update_worksheet()`
-    - Update the relevant worksheet with the data provided.
-- `calculate_surplus_data()`
-    - Compare sales with stock and calculate the surplus for each item type.
-- `get_last_5_entries_sales()`
-    - Collects columns of data from sales worksheet.
-- `calculate_stock_data()`
-    -  Calculate the average stock for each item type, adding 10%.
-- `main()`
-    - Run all program functions.
+- `def start_game()`
+    - Starts the game, shows questions and answer options and checks player inputs 
 
 ### Imports
 
 I've used the following Python packages and/or external imported packages.
 
-- `json`: 
-- `requests`: 
+- `json`: used for converting the python dictionary into a JSON string that can be written into a file
+- `requests`: used to make a request to a web page and print the response text
 - `colorama`: used for including color in the terminal
 - `random`: used to get a random choice from a list
 
@@ -143,7 +131,6 @@ I've used the following Python packages and/or external imported packages.
 In this section, you need to convince the assessors that you have conducted enough testing to legitimately believe that the site works well.
 Essentially, in this part, you should go over all of your project's features, and ensure that they all work as intended,
 with the project providing an easy and straightforward way for the users to achieve their goals.
-
 
 ## Code Validation
 
@@ -158,87 +145,19 @@ You are not required to validate external libraries/frameworks, such as imported
 
 I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to validate all of my Python files.
 
-The CI Python Linter can be used two different ways.
-- Copy/Paste your Python code directly into the linter.
-- As an API, using the "raw" URL appended to the linter URL.
-    - To find the "raw" URL, navigate to your file directly on the GitHub repo.
-    - On that page, GitHub provides a button on the right called "Raw" that you can click on.
-    - From that new page, copy the full URL, and paste it after the CI Python Linter URL (with a `/` separator).
-    - Examples:
-
     | File | CI URL | Raw URL | Combined |
-    | --- | --- | --- | --- |
+    | ---- | ------ | ------- | -------- |
     | PP3 *run.py* file | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/shadeofpurple79/flickers-smarticles/main/run.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/shadeofpurple79/flickers-smarticles/main/run.py |
-    | Boutique Ado *settings.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/shadeofpurple79/flickers-smarticles/main/boutique_ado/settings.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/shadeofpurple79/flickers-smarticles/main/boutique_ado/settings.py |
-
-It's recommended to validate each file using the API URL.
-This will give you a custom URL which you can use on your testing documentation.
-It makes it easier to return back to a file to validate it again in the future.
-Use the steps above to generate your own custom URLs for each Python file.
-
-**NOTE**: You must include 2 *spaces* before the `#`, and 1 *space* after the `#`.
-
-Do not use `# noqa` all over your project just to clear down validation errors!
-This can still cause a project to fail, for failing to fix actual PEP8 validation errors.
-
-Sometimes strings or variables get too long, or long `if` conditional statements.
-These are acceptable instances to use the `# noqa`.
-
-When trying to fix "line too long" errors, try to avoid using `/` to split lines.
-A better approach would be to use any type of opening bracket, and hit Enter just after that.
-Any opening bracket type will work: `(`, `[`, `{`.
-By using an opening bracket, Python knows where to appropriately indent the next line of code,
-without having to "guess" yourself and attempt to tab to the correct indentation level.
-
 
 ## Lighthouse Audit
 
-Use this space to discuss testing the live/deployed site's Lighthouse Audit reports.
-Avoid testing the local version (especially if developing in Gitpod), as this can have knock-on effects of performance.
-
-If you don't have Lighthouse in your Developer Tools,
-it can be added as an [extension](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk).
-
-Don't just test the home page (unless it's a single-page application).
-Make sure to test the Lighthouse Audit results for all of your pages.
-
-**IMPORTANT**: You must provide screenshots of the results, to "prove" that you've actually tested them.
-
-Sample Lighthouse testing documentation:
-
 I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
 
-| Page | Size | Screenshot | Notes |
-| --- | --- | --- | --- |
-| Home | Mobile | ![screenshot](documentation/lighthouse-home-mobile.png) | Some minor warnings |
-| Home | Desktop | ![screenshot](documentation/lighthouse-home-desktop.png) | Few warnings |
-| About | Mobile | ![screenshot](documentation/lighthouse-about-mobile.png) | Some minor warnings |
-| About | Desktop | ![screenshot](documentation/lighthouse-about-desktop.png) | Few warnings |
-| Gallery | Mobile | ![screenshot](documentation/lighthouse-gallery-mobile.png) | Slow response time due to large images |
-| Gallery | Desktop | ![screenshot](documentation/lighthouse-gallery-desktop.png) | Slow response time due to large images |
-| x | x | x | repeat for any other tested pages/sizes |
+| Page | Screenshot | Notes |
+| ---- | ---------- | ----- |
+| Home | ![screenshot](documentation/images/lighthouse-report.png) | No issues |
 
 ## Defensive Programming
-
-Defensive programming (defensive design) is extremely important!
-
-When building projects that accept user inputs or forms, you should always test the level of security for each.
-Examples of this could include (not limited to):
-
-Forms:
-- Users cannot submit an empty form
-- Users must enter valid email addresses
-
-PP3 (Python-only):
-- Users must enter a valid letter/word/string when prompted
-- Users must choose from a specific list only
-
-You'll want to test all functionality on your application, whether it's a standard form,
-or uses CRUD functionality for data manipulation on a database.
-Make sure to include the `required` attribute on any form-fields that should be mandatory.
-Try to access various pages on your site as different user types (User-A, User-B, guest user, admin, superuser).
-
-You should include any manual tests performed, and the expected results/outcome.
 
 Defensive programming was manually tested with the below user acceptance testing:
 
@@ -247,34 +166,7 @@ Defensive programming was manually tested with the below user acceptance testing
 | Home Page | | | | |
 | | Click on Logo | Redirection to Home page | Pass | |
 | | Click on Home link in navbar | Redirection to Home page | Pass | |
-| Gallery Page | | | | |
-| | Click on Gallery link in navbar | Redirection to Gallery page | Pass | |
-| | Load gallery images | All images load as expected | Pass | |
-| Contact Page | | | | |
-| | Click on Contact link in navbar | Redirection to Contact page | Pass | |
-| | Enter first/last name | Field will accept freeform text | Pass | |
-| | Enter valid email address | Field will only accept email address format | Pass | |
-| | Enter message in textarea | Field will accept freeform text | Pass | |
-| | Click the Submit button | Redirects user to form-dump | Pass | User must click 'Back' button to return |
-| Sign Up | | | | |
-| | Click on Sign Up button | Redirection to Sign Up page | Pass | |
-| | Enter valid email address | Field will only accept email address format | Pass | |
-| | Enter valid password (twice) | Field will only accept password format | Pass | |
-| | Click on Sign Up button | Asks user to confirm email page | Pass | Email sent to user |
-| | Confirm email | Redirects user to blank Sign In page | Pass | |
-| Log In | | | | |
-| | Click on the Login link | Redirection to Login page | Pass | |
-| | Enter valid email address | Field will only accept email address format | Pass | |
-| | Enter valid password | Field will only accept password format | Pass | |
-| | Click Login button | Redirects user to home page | Pass | |
-| Log Out | | | | |
-| | Click Logout button | Redirects user to logout page | Pass | Confirms logout first |
-| | Click Confirm Logout button | Redirects user to home page | Pass | |
-| Profile | | | | |
-| | Click on Profile button | User will be redirected to the Profile page | Pass | |
-| | Click on the Edit button | User will be redirected to the edit profile page | Pass | |
-| | Click on the My Orders link | User will be redirected to the My Orders page | Pass | |
-| | Brute forcing the URL to get to another user's profile | User should be given an error | Pass | Redirects user back to own profile |
+
 
 Repeat for all other tests, as applicable to your own site.
 The aforementioned tests are just an example of a few different project scenarios.
@@ -341,17 +233,21 @@ All previously closed/fixed bugs can be tracked [here](https://github.com/shadeo
 | Bug | Status |
 | --- | --- |
 | [JS Uncaught ReferenceError: `foobar` is undefined/not defined](https://github.com/shadeofpurple79/flickers-smarticles/issues/1) | Closed |
-| [Python `'ModuleNotFoundError'` when trying to import module from imported package](https://github.com/shadeofpurple79/flickers-smarticles/issues/2) | Closed |
-| [Django `TemplateDoesNotExist` at /appname/path appname/template_name.html](https://github.com/shadeofpurple79/flickers-smarticles/issues/3) | Closed |
+
+
+# bug - correct answer is always the same number 4 - fixed by assigning all incorrect plus 1 correct answer into a variable and shuffling all of them
+# user answer must be an int, otherwise it shows as incorrect answer - FIXED
+# bug - validation not working, not throwing an error when answer is other than 1234. Fixed by using a while loop with continue and break commands
+# if any other number is entered, it gives an error, but doesn't accept any further answers. Fixed by adding continue and break to while loop.
+# if any character other than a number is entered, it breaks and ends the game. Fixed by removing integer from input, and assigning the answer into a new variable that converts the answer into an integer. 
+# play again y/n. if answer is invalid, program ends, it doesn't accept any new answers. Fixed by replacing if loop with a while continue break loop and adding a nested if loop within.  
+# bug remove unwanted code from all answer choices and replace with apostrophe
 
 **Open Issues**
 
 Any remaining open issues can be tracked [here](https://github.com/shadeofpurple79/flickers-smarticles/issues).
 
-| Bug | Status |
-| --- | --- |
-| [JS `'let'` or `'const'` or `'template literal syntax'` or `'arrow function syntax (=>)'` is available in ES6 (use `'esversion: 11'`) or Mozilla JS extensions (use moz).](https://github.com/shadeofpurple79/flickers-smarticles/issues/4) | Open |
-| [Python `E501 line too long` (93 > 79 characters)](https://github.com/shadeofpurple79/flickers-smarticles/issues/5) | Open |
+No open issues. 
 
 ## Unfixed Bugs
 
@@ -410,8 +306,6 @@ This project can be cloned or forked in order to make a local copy on your own s
 For either method, you will need to install any applicable packages found within the *requirements.txt* file.
 - `pip3 install -r requirements.txt`.
 
-If using any confidential credentials, such as `CREDS.json` or `env.py` data, these will need to be manually added to your own newly created project as well.
-
 #### Cloning
 
 You can clone the repository by following these steps:
@@ -447,15 +341,11 @@ Use this space to discuss any differences between the local version you've devel
 
 ## Credits
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
 In this section you need to reference where you got your content, media, and extra help from.
 It is common practice to use code from other repositories and tutorials,
 however, it is important to be very specific about these sources to avoid plagiarism.
 
 ### Content
-
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
 
 Use this space to provide attribution links to any borrowed code snippets, elements, or resources.
 A few examples have been provided below to give you some ideas.
@@ -505,11 +395,4 @@ by sending yourself the following command: `!freemedia`.
 
 ### Acknowledgements
 
-Use this space to provide attribution to any supports that helped, encouraged, or supported you throughout the development stages of this project.
-A few examples have been provided below to give you some ideas.
-
 - I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for their support throughout the development of this project.
-- I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with troubleshooting and debugging some project issues.
-- I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and imposter syndrome.
-- I would like to thank my partner (John/Jane), for believing in me, and allowing me to make this transition into software development.
-- I would like to thank my employer, for supporting me in my career development change towards becoming a software developer.
