@@ -1,11 +1,10 @@
 import random
-
 import colorama
-from colorama import Fore, Back, Style
-colorama.init(autoreset=True)  # return to default colour after each time
-
 import json
 import requests  # Make a request to a web page, and print the response text
+
+from colorama import Fore, Back, Style
+colorama.init(autoreset=True)  # return to default colour after each time
 
 
 def start_game():
@@ -35,7 +34,10 @@ def start_game():
     # ask player to enter their choice
     for question in questions:
         # remove ugly text that comes in from the api for apostrophes
-        print(Style.BRIGHT + Back.MAGENTA + question["question"].replace("&quot;", "'").replace("&#039;", "'").replace("&ldquo;", "'").replace(",&rdquo;", "'").replace("&amp;", "'"))
+        print(Style.BRIGHT + Back.MAGENTA + question["question"].replace(
+            "&quot;", "'").replace("&#039;", "'").replace(
+                "&ldquo;", "'").replace(",&rdquo;", "'").replace(
+                    "&amp;", "'"))
         print("Select your answer from the following 4 options:")
 
         # assign 3 incorrect answers and 1 correct answer into a variable and
@@ -46,14 +48,18 @@ def start_game():
 
         for i, answer in enumerate(all_answers):
             # remove ugly text that comes in from the api for apostrophes
-            print(f"{i + 1}. {answer}".replace("&quot;", "'").replace("&#039;", "'").replace("&ldquo;", "'").replace(",&rdquo;", "'").replace("&amp;", "'").replace("&egrave;", "e").replace("&hellip;", "..."))
+            print(f"{i + 1}. {answer}".replace("&quot;", "'").replace(
+                "&#039;", "'").replace("&ldquo;", "'").replace(
+                    ",&rdquo;", "'").replace("&amp;", "'").replace(
+                        "&egrave;", "e").replace("&hellip;", "..."))
 
         # player selects an answer: 1,2,3,4
         user_answer = (input("What\'s your answer? Select 1,2,3 or 4: "))
 
         while True:
             if user_answer not in ['1', '2', '3', '4']:
-                user_answer = (input("You can only enter 1, 2, 3 or 4. Try again: "))
+                user_answer = (input(
+                    "You can only enter 1, 2, 3 or 4. Try again: "))
                 continue
             else:
                 break
@@ -66,13 +72,15 @@ def start_game():
             print(Fore.RED + "Sorry, incorrect.\n\n")
 
     print(Back.MAGENTA + "GAME OVER!")
-    print(f"You got {correct_answer} out of {len(questions)} questions correct.")
+    print(
+        f"You got {correct_answer} out of {len(questions)} questions correct.")
     print()
     play_again = input("Play again? Y / N: ").lower()
 
     while True:
         if play_again not in ["y", "n"]:
-            play_again = input("Not a valid answer. Play again? Y / N: ").lower()
+            play_again = input(
+                "Not a valid answer. Play again? Y / N: ").lower()
             continue
         else:
             if play_again == "y":
@@ -85,6 +93,7 @@ def start_game():
 
 
 start_game()
+
 
 
 
