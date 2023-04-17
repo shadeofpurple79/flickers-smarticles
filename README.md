@@ -157,74 +157,11 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | ---- | ---------- | ----- |
 | Home | ![screenshot](documentation/images/lighthouse-report.png) | No issues |
 
-## Defensive Programming
-
-Defensive programming was manually tested with the below user acceptance testing:
-
-| Page | User Action | Expected Result | Pass/Fail | Comments |
-| --- | --- | --- | --- | --- |
-| Home Page | | | | |
-| | Click on Logo | Redirection to Home page | Pass | |
-| | Click on Home link in navbar | Redirection to Home page | Pass | |
-
-
-Repeat for all other tests, as applicable to your own site.
-The aforementioned tests are just an example of a few different project scenarios.
-
 ## Bugs
 
-It's very important to document any bugs you've discovered while developing the project.
-Make sure to include any necessary steps you've implemented to fix the bug(s) as well.
-
-For JavaScript and Python applications, it's best to screenshot the errors to include them as well.
-
-**PRO TIP**: screenshots of bugs are extremely helpful, and go a long way!
-
-- JS Uncaught ReferenceError: `foobar` is undefined/not defined
-
-    ![screenshot](documentation/bug01.png)
-
-    - To fix this, I _____________________.
-
-- JS `'let'` or `'const'` or `'template literal syntax'` or `'arrow function syntax (=>)'` is available in ES6 (use `'esversion: 11'`) or Mozilla JS extensions (use moz).
-
-    ![screenshot](documentation/bug02.png)
-
-    - To fix this, I _____________________.
-
-- Python `'ModuleNotFoundError'` when trying to import module from imported package
-
-    ![screenshot](documentation/bug03.png)
-
-    - To fix this, I _____________________.
-
-- Django `TemplateDoesNotExist` at /appname/path appname/template_name.html
-
-    ![screenshot](documentation/bug04.png)
-
-    - To fix this, I _____________________.
-
-- Python `E501 line too long` (93 > 79 characters)
-
-    ![screenshot](documentation/bug04.png)
-
-    - To fix this, I _____________________.
+Bugs are documented under Github Issues page. 
 
 ### GitHub **Issues**
-
-An improved way to manage bugs is to use the built-in **Issues** tracker on your GitHub repository.
-To access your Issues, click on the "Issues" tab at the top of your repository.
-Alternatively, use this link: https://github.com/shadeofpurple79/flickers-smarticles/issues
-
-If using the Issues tracker for your bug management, you can simplify the documentation process.
-Issues allow you to directly paste screenshots into the issue without having to first save the screenshot locally,
-then uploading into your project.
-
-You can add labels to your issues (`bug`), assign yourself as the owner, and add comments/updates as you progress with fixing the issue(s).
-
-Once you've sorted the issue, you should then "Close" it.
-
-When showcasing your bug tracking for assessment, you can use the following format:
 
 **Fixed Bugs**
 
@@ -232,22 +169,19 @@ All previously closed/fixed bugs can be tracked [here](https://github.com/shadeo
 
 | Bug | Status |
 | --- | --- |
-| [JS Uncaught ReferenceError: `foobar` is undefined/not defined](https://github.com/shadeofpurple79/flickers-smarticles/issues/1) | Closed |
-
-
-# bug - correct answer is always the same number 4 - fixed by assigning all incorrect plus 1 correct answer into a variable and shuffling all of them
-# user answer must be an int, otherwise it shows as incorrect answer - FIXED
-# bug - validation not working, not throwing an error when answer is other than 1234. Fixed by using a while loop with continue and break commands
-# if any other number is entered, it gives an error, but doesn't accept any further answers. Fixed by adding continue and break to while loop.
-# if any character other than a number is entered, it breaks and ends the game. Fixed by removing integer from input, and assigning the answer into a new variable that converts the answer into an integer. 
-# play again y/n. if answer is invalid, program ends, it doesn't accept any new answers. Fixed by replacing if loop with a while continue break loop and adding a nested if loop within.  
-# bug remove unwanted code from all answer choices and replace with apostrophe
+| [1) correct answer is always the same number 4 ](https://github.com/shadeofpurple79/flickers-smarticles/issues/1) | Closed |
+| [2) user answer must be an int, otherwise it shows as incorrect answer](https://github.com/shadeofpurple79/flickers-smarticles/issues/2) | Closed |
+| [3) not throwing an error when answer is other than 1-2-3-4](https://github.com/shadeofpurple79/flickers-smarticles/issues/3) | Closed |
+| [4) after error, doesn't accept any further answers](https://github.com/shadeofpurple79/flickers-smarticles/issues/4) | Closed |
+| [5) Game breaks when any character other than a number is entered](https://github.com/shadeofpurple79/flickers-smarticles/issues/5) | Closed |
+| [6) Game breaks if answer is invalid when play again? y/n is asked](https://github.com/shadeofpurple79/flickers-smarticles/issues/6) | Closed |
+| [7) Bad characters still appearing in answer choices](https://github.com/shadeofpurple79/flickers-smarticles/issues/7) | Closed |
 
 **Open Issues**
 
 Any remaining open issues can be tracked [here](https://github.com/shadeofpurple79/flickers-smarticles/issues).
 
-No open issues. 
+There are no open issues. 
 
 ## Unfixed Bugs
 
@@ -335,64 +269,31 @@ You can fork this repository by using the following steps:
 2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
 
-### Local VS Deployment
-
-Use this space to discuss any differences between the local version you've developed, and the live deployment site on Heroku.
-
 ## Credits
 
-In this section you need to reference where you got your content, media, and extra help from.
-It is common practice to use code from other repositories and tutorials,
-however, it is important to be very specific about these sources to avoid plagiarism.
+I've used a lot of resources to help me understand how Python works and how to create a basic simple quiz game:
+
+| Source | Notes |
+| --- | --- |
+| [Tim Nelson's Markdown Builder](https://traveltimn.github.io/markdown-builder/) | tool to help generate the Markdown files |
+| [Open Trivia Database](https://opentdb.com/api_config.php) | provides a free JSON API for use in programming projects |
+| [Learn Python - Full Course for Beginners [Tutorial] FreeCodeCamp.org](https://www.youtube.com/watch?v=rfscVS0vtbw) | helped me understand Python better |
+| [Learn Python](https://learnpython.com/) | learn how to use Python |
 
 ### Content
 
-Use this space to provide attribution links to any borrowed code snippets, elements, or resources.
-A few examples have been provided below to give you some ideas.
+I've used code snippets and adjusted to my requirements from the following resources:
 
-Ideally, you should provide an actual link to every resource used, not just a generic link to the main site!
-
-
-
-| Source | Location | Notes |
-| --- | --- | --- |
-| [Markdown Builder](https://traveltimn.github.io/markdown-builder) | README and TESTING | tool to help generate the Markdown files |
-| [Chris Beams](https://chris.beams.io/posts/git-commit) | version control | "How to Write a Git Commit Message" |
-| [W3Schools](https://www.w3schools.com/howto/howto_js_topnav_responsive.asp) | entire site | responsive HTML/CSS/JS navbar |
-| [W3Schools](https://www.w3schools.com/howto/howto_css_modals.asp) | contact page | interactive pop-up (modal) |
-| [W3Schools](https://www.w3schools.com/css/css3_variables.asp) | entire site | how to use CSS :root variables |
-| [Flexbox Froggy](https://flexboxfroggy.com/) | entire site | modern responsive layouts |
-| [Grid Garden](https://cssgridgarden.com) | entire site | modern responsive layouts |
-| [StackOverflow](https://stackoverflow.com/a/2450976) | quiz page | Fisher-Yates/Knuth shuffle in JS |
-| [YouTube](https://www.youtube.com/watch?v=YL1F4dCUlLc) | leaderboard | using `localStorage()` in JS for high scores |
-| [YouTube](https://www.youtube.com/watch?v=u51Zjlnui4Y) | PP3 terminal | tutorial for adding color to the Python terminal |
-| [strftime](https://strftime.org) | CRUD functionality | helpful tool to format date/time from string |
-| [WhiteNoise](http://whitenoise.evans.io) | entire site | hosting static files on Heroku temporarily |
-
-### Media
-
-Use this space to provide attribution links to any images, videos, or audio files borrowed from online.
-A few examples have been provided below to give you some ideas.
-
-If you're the owner (or a close acquaintance) of all media files, then make sure to specify this.
-Let the assessors know that you have explicit rights to use the media files within your project.
-
-Ideally, you should provide an actual link to every media file used, not just a generic link to the main site!
-The list below is by no means exhaustive. Within the Code Institute Slack community, you can find more "free media" links
-by sending yourself the following command: `!freemedia`.
-
-| Source | Location | Type | Notes |
-| --- | --- | --- | --- |
-| [Pexels](https://www.pexels.com) | entire site | image | favicon on all pages |
-| [Lorem Picsum](https://picsum.photos) | home page | image | hero image background |
-| [Unsplash](https://unsplash.com) | product page | image | sample of fake products |
-| [Pixabay](https://pixabay.com) | gallery page | image | group of photos for gallery |
-| [Wallhere](https://wallhere.com) | footer | image | background wallpaper image in the footer |
-| [This Person Does Not Exist](https://thispersondoesnotexist.com) | testimonials | image | headshots of fake testimonial images |
-| [Audio Micro](https://www.audiomicro.com/free-sound-effects) | game page | audio | free audio files to generate the game sounds |
-| [Videvo](https://www.videvo.net/) | home page | video | background video on the hero section |
-| [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
+| Source | Notes |
+| --- | --- |
+| [Creating A Basic Trivia Game In Python](https://medium.com/@webmind-solutions/creating-a-basic-trivia-game-in-python-using-apis-89a45ac1877) | useful article about using Open TDB |
+| [Create a QUIZ GAME with Python](https://youtu.be/zehwgTB0vV8) | useful video showing steps for creating a Python game |
+| [Python Quiz Game](https://youtu.be/yriw5Zh406s) |  useful video showing steps for creating a Python game |
+| [Adding Color to Your Python Project](https://www.youtube.com/watch?v=u51Zjlnui4Y ) | Colorama Tutorial |
+| [Fetching Questions](https://www.commudle.com/labs/gui-quiz-application-using-tkinter-and-open-trivia-db/steps/150352) | article about fetching questions from Open Trivia DB API |
+| [Python String replace() Method](https://www.w3schools.com/python/ref_string_replace.asp) | used in replacing ugly apostrophe code | 
+| [A Guide to Formatting with f-strings in Python](http://cissandbox.bentley.edu/sandbox/wp-content/uploads/2022-02-10-Documentation-on-f-strings-Updated.pdf) | used in constructing print statements using variables | 
 
 ### Acknowledgements
 
-- I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for their support throughout the development of this project.
+- I would like to thank my Mentor at Code Institute, [Tim Nelson](https://github.com/TravelTimN) for going out of his way to help me improve my code and encourabge me that I can do this. 
