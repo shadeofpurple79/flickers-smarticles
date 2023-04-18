@@ -38,11 +38,11 @@ def start_game():
     # show 3 incorrect answers and 1 correct answer
     # ask player to enter their choice
     for question in questions:
-        # remove ugly text that comes in from the api for apostrophes
+        # remove ugly text that comes in from the api for apostrophes 
         print(Style.BRIGHT + Back.MAGENTA + question["question"].replace(
             "&quot;", "'").replace("&#039;", "'").replace(
                 "&ldquo;", "'").replace(",&rdquo;", "'").replace(
-                    "&amp;", "'"))
+                    "&amp;", "'").replace("n&rsquo;", "'"))
         print("Select your answer from the following 4 options:")
 
         # assign 3 incorrect answers and 1 correct answer into a variable 
@@ -56,7 +56,8 @@ def start_game():
             print(f"{i + 1}. {answer}".replace("&quot;", "'").replace(
                 "&#039;", "'").replace("&ldquo;", "'").replace(
                     ",&rdquo;", "'").replace("&amp;", "'").replace(
-                        "&egrave;", "e").replace("&hellip;", "..."))
+                        "&egrave;", "e").replace(
+                            "&hellip;", "...").replace("n&rsquo;", "'"))
 
         # player selects an answer: 1,2,3,4
         user_answer = (input("What\'s your answer? Select 1,2,3 or 4: "))
