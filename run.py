@@ -8,15 +8,20 @@ colorama.init(autoreset=True)  # return to default colour after each time
 
 
 def start_game():
-    print("===============================================")
-    print("|             Flickers Smarticles             |")
-    print("|              Movie Trivia Game              |")
-    print("| Do you know your Tom Cruise from Brad Pitt? |")
-    print("===============================================")
+    print(Back.MAGENTA + "=================================================")
+    print("|                                               |")
+    print(Style.BRIGHT + "|              Flickers Smarticles              |")
+    print("|               Movie Trivia Game               |")
+    print("|                                               |")
+    print("|  Do you know your Tom Cruise from Brad Pitt?  |")
+    print("| Answer 20 questions. Select from 1, 2, 3, or 4|")
+    print("|                                               |")
+    print( Back.MAGENTA +"=================================================")
     print()
     print()
+    
     # from opentdb api, category: entertainment
-    # - film, 20 questions, multiple choice
+    # film, 20 questions, multiple choice
     API_URL = "https://opentdb.com/api.php?amount=20&category=11&type=multiple"
 
     # get data from the API
@@ -40,7 +45,7 @@ def start_game():
                     "&amp;", "'"))
         print("Select your answer from the following 4 options:")
 
-        # assign 3 incorrect answers and 1 correct answer into a variable and
+        # assign 3 incorrect answers and 1 correct answer into a variable 
         # shuffle them so that the answer is not always the same option
         all_answers = question["incorrect_answers"]
         all_answers.append(question["correct_answer"])
@@ -93,153 +98,3 @@ def start_game():
 
 
 start_game()
-
-
-
-
-
-# CODING CHECKLIST
-
-# RUN PROGRAM BUTTON
-
-# show game intro at the start
-
-# function start_game - DONE start_game
-# 	pull new 20 questions and answer choices from the API link - DONE
-# 	reset the score = 0 - DONE
-# 	question_number = 0
-# 	choices = [1-2-3-4] - DONE
-# 	clear the screen
-
-# 	for question i to 20 - DONE
-
-# 		show_question [i] - DONE 
-# 		question_number + 1 - DONE
-# 		i + 1 - DONE
-#       shuffle the order of incorrect answers and correct answer - DONE
-# 		show 3 incorrect answers - DONE
-# 		show 1 correct answer - DONE
-# 		show 1-2-3-4 next to each answer option - DONE
-
-# 		input answer - DONE
-# 		while input answer is not included in choices - DONE
-# 			print error message, input only 1-2-3-4 - DONE
-# 		otherwise check if input answer is correct or wrong - DONE
-# 			if it's correct - DONE
-# 				print correct - DONE
-# 				score + 1 - DONE
-# 			if it's wrong - DONE
-# 				print incorrect - DONE
-# 		back to show_question - DONE
-
-# 	when i = 20 end quiz  - DONE
-
-# print score + message - DONE
-# input question play again? y/n - DONE
-# 	if y - DONE
-# 		function start_game - DONE
-# 	if n - DONE
-# 		print goodbye + end game - DONE
-# 	if other - DONE
-# 		input question play again? y/n - DONE
-	
-
- # if play_again == "y":
-    #     start_game()
-    # else play_again == "n":
-    #     print(Back.MAGENTA + "Goodbye") 
-    #     print()
-    #     print()
-
-
-
-
-# # BINNED CODE
-
-        # answer_count = 0
-        # answer_limit = 3 # can only enter 3 times for one question
-        # out_of_try = False
-        # answer_count < answer_limit:
-        # answer_count += 1
-        # out_of_try = True
-        # if out_of_try:
-        #     print("Sorry, too many invalid answers. ")
-        # else: 
-
-
-
-############### fix 1
- # len() function returns the number of items in an object, 20 questions
-        # print all 3 incorrect answers and 1 correct answer
-        # for i in range(len(question["incorrect_answers"])):  
-        #     random.shuffle(question['incorrect_answers'])
-        #     print(f"{i+1}. {(question['incorrect_answers'][i])}")
-        # print(f"{len(question['incorrect_answers'])+1}. {question['correct_answer']}")
-############### end of fix 1
-
-
-############### fix 2
-        # if user_answer == len(question["incorrect_answers"]) + 1:
-        #     print(Fore.GREEN + "Correct, well done!\n\n")
-        #     print()  # Add a blank line between questions
-        #     correct_answer += 1 #increase score by 1 for each correct answer
-        # else:
-        #     print(Fore.RED + "Sorry, incorrect.\n\n")
-############### END OF fix 2
-
-
-# def validate_choice(user_answer, answer_choices):
-        #     try:
-        #         if user_answer not in answer_choices:
-        #             user_answer = (input("You can only enter 1, 2, 3 or 4. Try again: "))
-        #             # raise ValueError
-        #     except ValueError:
-        #         print(red(LINE))
-        #         print(red(CENT(f'Error: "{user_answer}" is not valid! Enter 1 or 2 or 3 or 4')))
-        #         return False
-        #     return True
-
-
-
- # again = input("Play again? Y / N")
-    #     if again = "y":
-    #         start_game()
-    #     elif again = "n":
-    #         print(Back.MAGENTA + "Goodbye")
-    #         break 
-    #     else:
-    #         input("Not a valid answer. Play again? Y/N")
-  
-
-
-# function to validate user answer
-# def validate_choice(user_answer, choices):
-#     try:
-#         if user_answer not in choices:
-#             raise ValueError
-#     except ValueError:
-#         print(red(LINE))
-#         print(red(CENT(f'Error: "{user_answer}" is not valid! Enter 1 or 2 or 3 or 4')))
-#         return False
-#     return True
-
-
-    
-
-# while not (user_answer == 1 or user_answer == 2 or user_answer == 3 or user_answer == 4):
-
-    # while True: 
-    #     user_answer = ""
-    #     try:
-    #         user_answer = int(input("What\'s your answer? Select 1,2,3 or 4: ")) #player selects an answer: 1,2,3, or 4 for each question
-    #         choices = 
-                # if user error not in choices 
-    #           if user_answer == len(question["incorrect_answers"]) + 1:
-    #             print(Fore.GREEN + "Correct, well done!\n\n")
-    #             correct_answers += 1 #increase score by 1 for each correct answer
-    #         else:
-    #             print(Fore.RED + "Sorry, incorrect.\n\n")
-    #     except ValueError: 
-    #         user_answer = int(input("You can only enter 1, 2, 3 or 4. Try again: "))
-
-
