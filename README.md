@@ -47,9 +47,9 @@ Below is the flowchart of the main process of this Python program. It shows the 
 
 ![Reshuffle Answers](documentation/images/reshuffle-answers.png)
 
-- **Removal of Bad Characters from the API**
+- **Removal of Bad Characters from the API** 
 
-    - Open TDB questions and answers are full of bad characters that appear illegible to the player. These are mostly apostrophes, such as &quot;, &#039;, &ldquo;, ,&rdquo;, &amp;; but also the French letter e with accent (&egrave;), and the three dots for ellipsis (&hellip;). These are replaced using the .replace in Python before they're displayed to the player. 
+    - Open TDB questions and answers are full of bad characters that appear illegible to the player. These are mostly apostrophes, such as \&quot; \&#039; \&ldquo; \,&rdquo; \&amp;; but also the French letter e with accent (\&egrave;) and the three dots for ellipsis (\&hellip;). These are replaced using the .replace in Python before they're displayed to the player. 
 
 ![Bad Characters](documentation/images/bad-characters.png)
 
@@ -102,16 +102,6 @@ Below is the flowchart of the main process of this Python program. It shows the 
 
 The program uses classes as a blueprint for the project's objects (OOP). This allows for the object to be reusable.
 
-```python
-class Person:
-    """ Insert docstring comments here """
-    def __init__(self, name, age, health, inventory):
-        self.name = name
-        self.age = age
-        self.health = health
-        self.inventory = inventory
-```
-
 The primary functions used on this application are:
 
 - `def start_game()`
@@ -133,13 +123,6 @@ Essentially, in this part, you should go over all of your project's features, an
 with the project providing an easy and straightforward way for the users to achieve their goals.
 
 ## Code Validation
-
-Use the space to discuss code validation for any of your own code files (where applicable).
-You are not required to validate external libraries/frameworks, such as imported Bootstrap, Materialize, Font Awesome, etc.
-
-**IMPORTANT**: You must provide a screenshot for each file you validate.
-
-**PRO TIP**: Always validate the live site pages, not your local code. There could be subtle/hidden differences.
 
 ### Python
 
@@ -185,7 +168,20 @@ There are no open issues.
 
 ## Unfixed Bugs
 
-There are no remaining bugs that I am aware of.
+There are no remaining bugs that I am aware of. 
+
+All apostrophe characters found so far in the API have been replaced. 
+
+During the testing of the game, about 500 questions and their answer options have been checked and all ascii characters have been cleaned up. These are: 
+
+- \&quot;
+- \&#039;
+- \&ldquo;
+- \&rdquo;
+- \&amp;
+- \&rsquo;
+
+However occasionally new ascii characters still come up. I couldn't find a way to review the entire question database to see if any other variation of apostrophe has been used in the Open TDB database.
 
 ## Deployment
 
