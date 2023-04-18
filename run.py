@@ -16,10 +16,10 @@ def start_game():
     print("|  Do you know your Tom Cruise from Brad Pitt?  |")
     print("| Answer 20 questions. Select from 1, 2, 3, or 4|")
     print("|                                               |")
-    print( Back.MAGENTA +"=================================================")
+    print(Back.MAGENTA + "=================================================")
     print()
     print()
-    
+
     # from opentdb api, category: entertainment
     # film, 20 questions, multiple choice
     API_URL = "https://opentdb.com/api.php?amount=20&category=11&type=multiple"
@@ -38,14 +38,14 @@ def start_game():
     # show 3 incorrect answers and 1 correct answer
     # ask player to enter their choice
     for question in questions:
-        # remove ugly text that comes in from the api for apostrophes 
+        # remove ugly text that comes in from the api for apostrophes
         print(Style.BRIGHT + Back.MAGENTA + question["question"].replace(
             "&quot;", "'").replace("&#039;", "'").replace(
                 "&ldquo;", "'").replace(",&rdquo;", "'").replace(
                     "&amp;", "'").replace("n&rsquo;", "'"))
         print("Select your answer from the following 4 options:")
 
-        # assign 3 incorrect answers and 1 correct answer into a variable 
+        # assign 3 incorrect answers and 1 correct answer into a variable
         # shuffle them so that the answer is not always the same option
         all_answers = question["incorrect_answers"]
         all_answers.append(question["correct_answer"])
