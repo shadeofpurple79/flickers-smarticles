@@ -135,6 +135,15 @@ I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to 
 | ---- | ------ | ------- | -------- |
 | PP3 *run.py* file | [Pep8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/shadeofpurple79/flickers-smarticles/main/run.py) | ![Screenshot pep8](documentation/images/pep8-validation.png) | No errors found|
 
+## Defensive Programming
+
+- **Input Validation**
+
+Player is requested to enter one of 1-2-3-4 as an answer choice to the multiple choice questions. If the input is anything other than these four numbers, a while loop has been implemented that keeps asking the player to enter the correct type of input. This validation includes any letters, special characters and also any number outside of 1-2-3-4. 
+
+![Colours](documentation/images/input-choices.png)
+
+
 ## Lighthouse Audit
 
 I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
