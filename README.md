@@ -131,9 +131,9 @@ with the project providing an easy and straightforward way for the users to achi
 
 I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to validate all of my Python files.
 
-| File | CI URL | Raw URL | Combined |
+| File | URL | Screenshot | Notes |
 | ---- | ------ | ------- | -------- |
-| PP3 *run.py* file | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/shadeofpurple79/flickers-smarticles/main/run.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/shadeofpurple79/flickers-smarticles/main/run.py |
+| PP3 *run.py* file | [Pep8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/shadeofpurple79/flickers-smarticles/main/run.py) | ![Screenshot pep8](documentation/images/pep8-validation.png) | No errors found|
 
 ## Lighthouse Audit
 
