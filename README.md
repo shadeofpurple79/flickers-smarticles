@@ -47,11 +47,11 @@ Below is the flowchart of the main process of this Python program. It shows the 
 
 ![Reshuffle Answers](documentation/images/reshuffle-answers.png)
 
-- **Removal of Bad Characters from the API** 
+- **Removal of Unicodes from the API** 
 
-    - Open TDB questions and answers are full of bad characters that appear illegible to the player. These are mostly apostrophes, such as \&quot; \&#039; \&ldquo; \,&rdquo; \&amp;; but also the French letter e with accent (\&egrave;) and the three dots for ellipsis (\&hellip;). These are replaced using the .replace in Python before they're displayed to the player. 
+    - Open TDB questions and answers are full of unicodes that appear illegible to the player. These are mostly apostrophes, such as `\&quot;` `\&#039;` `\&ldquo;` `\,&rdquo;` `\&amp;;` but also the French letter e with accent (`\&egrave;`) and the three dots for ellipsis (`\&hellip;`). These are replaced using the .replace in Python before they're displayed to the player. 
 
-![Bad Characters](documentation/images/bad-characters.png)
+![Unicodes](documentation/images/bad-characters.png)
 
 - **Numbered List for Multiple Choice Options**
 
@@ -94,18 +94,19 @@ Below is the flowchart of the main process of this Python program. It shows the 
 - [Python](https://www.python.org) used as the back-end programming language.
 - [Git](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
 - [GitHub](https://github.com) used for secure online code storage.
-- [GitHub Pages](https://pages.github.com) used for hosting the deployed front-end site.
 - [Gitpod](https://gitpod.io) used as a cloud-based IDE for development.
 - [Heroku](https://www.heroku.com) used for hosting the deployed back-end site.
+- [Open TDB](https://opentdb.com/api_config.php) used as a database of trivia questions in the film category.
 
 ### Classes & Functions
-
-The program uses classes as a blueprint for the project's objects (OOP). This allows for the object to be reusable.
 
 The primary functions used on this application are:
 
 - `def start_game()`
     - Starts the game, shows questions and answer options and checks player inputs 
+
+- `clear()`
+    - Clears the terminal to show a clean screen
 
 ### Imports
 
@@ -115,6 +116,8 @@ I've used the following Python packages and/or external imported packages.
 - `requests`: used to make a request to a web page and print the response text
 - `colorama`: used for including color in the terminal
 - `random`: used to get a random choice from a list
+- `os`: used to clear the screen
+
 
 ## Testing
 
@@ -128,9 +131,9 @@ with the project providing an easy and straightforward way for the users to achi
 
 I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to validate all of my Python files.
 
-    | File | CI URL | Raw URL | Combined |
-    | ---- | ------ | ------- | -------- |
-    | PP3 *run.py* file | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/shadeofpurple79/flickers-smarticles/main/run.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/shadeofpurple79/flickers-smarticles/main/run.py |
+| File | CI URL | Raw URL | Combined |
+| ---- | ------ | ------- | -------- |
+| PP3 *run.py* file | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/shadeofpurple79/flickers-smarticles/main/run.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/shadeofpurple79/flickers-smarticles/main/run.py |
 
 ## Lighthouse Audit
 
@@ -174,12 +177,12 @@ All apostrophe characters found so far in the API have been replaced.
 
 During the testing of the game, about 500 questions and their answer options have been checked and all ascii characters have been cleaned up. These are: 
 
-- \&quot;
-- \&#039;
-- \&ldquo;
-- \&rdquo;
-- \&amp;
-- \&rsquo;
+- `\&quot;`
+- `\&#039;`
+- `\&ldquo;`
+- `\&rdquo;`
+- `\&amp;`
+- `\&rsquo;`
 
 However occasionally new ascii characters still come up. I couldn't find a way to review the entire question database to see if any other variation of apostrophe has been used in the Open TDB database.
 
@@ -199,7 +202,6 @@ Deployment steps are as follows, after account setup:
 - Select **New** in the top-right corner of your Heroku Dashboard, and select **Create new app** from the dropdown menu.
 - Your app name must be unique, and then choose a region closest to you (EU or USA), and finally, select **Create App**.
 - From the new app **Settings**, click **Reveal Config Vars**, and set the value of KEY to `PORT`, and the value to `8000` then select *add*.
-- If using any confidential credentials, such as CREDS.JSON, then these should be pasted in the Config Variables as well.
 - Further down, to support dependencies, select **Add Buildpack**.
 - The order of the buildpacks is important, select `Python` first, then `Node.js` second. (if they are not in this order, you can drag them to rearrange them)
 
