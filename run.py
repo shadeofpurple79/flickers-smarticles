@@ -81,10 +81,23 @@ def start_game():
 
         user_input = int(user_answer)
         if all_answers[user_input - 1] == question["correct_answer"]:
-            print(Fore.GREEN + "Correct, well done!\n\n")
+            print(Fore.GREEN + "Correct, well done!\n")
             correct_answer += 1
+            input("Press enter to continue\n")
+            clear()
         else:
-            print(Fore.RED + "Sorry, incorrect.\n\n")
+            print(Fore.RED + "Sorry, incorrect.")
+            right = question["correct_answer"].replace("&quot;", "'").replace(
+                "&#039;", "'").replace("&ldquo;", "'").replace(
+                    ",&rdquo;", "'").replace("&amp;", "'").replace(
+                        "&egrave;", "e").replace(
+                            "&hellip;", "...").replace("n&rsquo;", "'")
+            print(
+                Fore.MAGENTA +
+                f"Correct answer is: {right}\n"
+            )
+            input("Press enter to continue\n")
+            clear()
 
     print(Back.MAGENTA + "GAME OVER!")
     print(
