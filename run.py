@@ -30,7 +30,7 @@ def start_game():
     print()
     input("Press enter to start the quiz\n")
     clear()
-    
+   
     # from opentdb api, category: entertainment
     # film, 20 questions, multiple choice
     API_URL = "https://opentdb.com/api.php?amount=20&category=11&type=multiple"
