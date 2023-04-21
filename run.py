@@ -52,7 +52,7 @@ def start_game():
             "&quot;", "'").replace("&#039;", "'").replace(
                 "&ldquo;", "'").replace(",&rdquo;", "'").replace(
                     "&amp;", "'").replace("n&rsquo;", "'"))
-        print("Select your answer from the following 4 options:")
+        print()
 
         # assign 3 incorrect answers and 1 correct answer into a variable
         # shuffle them so that the answer is not always the same option
@@ -69,12 +69,12 @@ def start_game():
                             "&hellip;", "...").replace("n&rsquo;", "'"))
 
         # player selects an answer: 1,2,3,4
-        user_answer = (input("What\'s your answer? Select 1,2,3 or 4: "))
+        user_answer = input("\nWhat's your answer? Select 1, 2, 3 or 4: ")
 
         while True:
             if user_answer not in ['1', '2', '3', '4']:
                 user_answer = (input(
-                    "You can only enter 1, 2, 3 or 4. Try again: "))
+                    Fore.RED + "You can only enter 1, 2, 3 or 4. Try again: "))
                 continue
             else:
                 break
@@ -108,15 +108,15 @@ def start_game():
     while True:
         if play_again not in ["y", "n"]:
             play_again = input(
+                Fore.RED +
                 "Not a valid answer. Play again? Y / N: ").lower()
             continue
         else:
             if play_again == "y":
                 start_game()
             else:
+                clear()
                 print(Back.MAGENTA + "Goodbye")
-                print()
-                print()
             break
 
 
