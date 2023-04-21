@@ -28,7 +28,9 @@ def start_game():
     print(Back.MAGENTA + "=================================================")
     print()
     print()
-
+    input("Press enter to start the quiz\n")
+    clear()
+    
     # from opentdb api, category: entertainment
     # film, 20 questions, multiple choice
     API_URL = "https://opentdb.com/api.php?amount=20&category=11&type=multiple"
@@ -47,6 +49,7 @@ def start_game():
     # show 3 incorrect answers and 1 correct answer
     # ask player to enter their choice
     for question in questions:
+        print()
         # remove ugly text that comes in from the api for apostrophes
         print(Style.BRIGHT + Back.MAGENTA + question["question"].replace(
             "&quot;", "'").replace("&#039;", "'").replace(
