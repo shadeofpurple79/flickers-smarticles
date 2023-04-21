@@ -2,12 +2,21 @@ import random
 import colorama
 import json
 import requests  # Make a request to a web page, and print the response text
+import os
 
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)  # return to default colour after each time
 
 
+def clear():
+    """
+    Clear function to clean-up the terminal so things don't get messy.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+
+
 def start_game():
+    clear()
     print(Back.MAGENTA + "=================================================")
     print("|                                               |")
     print(Style.BRIGHT + "|              Flickers Smarticles              |")
